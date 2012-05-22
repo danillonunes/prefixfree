@@ -5,6 +5,24 @@
  */
 
 /**
+ * Implements hook_library().
+ */
+function prefixfree_library() {
+  $libraries = array();
+
+  $libraries['prefixfree'] = array(
+    'title' => 'Prefix free',
+    'website' => 'http://leaverou.github.com/prefixfree',
+    'version' => '',
+    'js' => array(
+      prefixfree_get_library_file() => array(),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
  * Helper function gets the path to the library directory.
  */
 function prefixfree_get_library_path() {
