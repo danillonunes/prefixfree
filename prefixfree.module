@@ -3,3 +3,22 @@
  * @file
  * Break free from CSS prefix hell!
  */
+
+/**
+ * Helper function gets the path to the library directory.
+ */
+function prefixfree_get_library_path() {
+  $default_path = drupal_get_path('module', 'prefixfree') . '/prefixfree';
+  $path = NULL;
+
+  // If Libraries API is enabled, make sure the file exists before pointing there.
+  if (function_exists('libraries_get_path') && file_exists(libraries_get_path('prefixfree'))) {
+    $path = libraries_get_path('prefixfree');
+  }
+  // If the library can't be found, try to get it from the module directory.
+  else if (file_exists($default_path)) {
+    $path = $default_path;
+  }
+
+  return $path;
+}
