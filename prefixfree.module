@@ -22,3 +22,23 @@ function prefixfree_get_library_path() {
 
   return $path;
 }
+
+/**
+ * Helper function gets the path to the library Javascript file.
+ */
+function prefixfree_get_library_file() {
+  $file = NULL;
+  $path = prefixfree_get_library_path();
+
+  if (file_exists($path . '/prefixfree.js')) {
+    $file = $path . '/prefixfree.js';
+  }
+
+  // This is not a else if because prefixfree.min.js should override
+  // prefixfree.js if if exists.
+  if (file_exists($path . '/prefixfree.min.js')) {
+    $file = $path . '/prefixfree.min.js';
+  }
+
+  return $file;
+}
