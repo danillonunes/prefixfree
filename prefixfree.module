@@ -5,6 +5,13 @@
  */
 
 /**
+ * Implements hook_init().
+ */
+function prefixfree_init() {
+  drupal_add_library('prefixfree', 'prefixfree', TRUE);
+}
+
+/**
  * Implements hook_library().
  */
 function prefixfree_library() {
