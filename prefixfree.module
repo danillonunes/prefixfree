@@ -41,7 +41,7 @@ function prefixfree_get_library_path() {
     $path = libraries_get_path('prefixfree');
   }
   // If the library can't be found, try to get it from the module directory.
-  else if (file_exists($default_path)) {
+  elseif (file_exists($default_path)) {
     $path = $default_path;
   }
 
